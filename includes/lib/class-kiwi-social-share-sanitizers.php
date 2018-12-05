@@ -141,7 +141,6 @@ class Kiwi_Social_Share_Sanitizers {
 			'google-plus',
 			'pinterest',
 			'fintel',
-			'mix',
 			'reddit',
 			'email',
 			'whatsapp',

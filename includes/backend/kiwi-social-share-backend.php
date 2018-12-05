@@ -60,9 +60,4 @@ if ( ! defined( 'ABSPATH' ) ) {
         </div>
 		<?php submit_button( __( 'Save changes', 'kiwi-social-share', 'primary', 'submitter', true, array( 'id' => 'submitter' ) ) ); ?>
     </form>
-	<?php
-	/* start-lite-version */
-	require_once dirname( __FILE__ ) . '/parts/kiwi-modal-popup.php';
-	/* end-lite-version */
-	?>
 </div>

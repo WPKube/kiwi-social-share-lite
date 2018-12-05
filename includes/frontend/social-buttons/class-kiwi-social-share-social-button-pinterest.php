@@ -31,7 +31,7 @@ final class Kiwi_Social_Share_Social_Button_Pinterest extends Kiwi_Social_Share_
 
 		$desc = strip_tags( $this->get_excerpt_by_id( get_the_ID() ) );
 		if ( 'fp' == $this->post_id ) {
-			$desc = esc_html__(get_bloginfo( 'description' ));
+			$desc = get_bloginfo( 'description' );
 		}
 
 		if ( ! empty( $custom_text ) ) {

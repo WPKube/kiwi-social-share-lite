@@ -103,7 +103,7 @@ class Kiwi_Social_Share_Shortcodes {
 
 		$id = '';
 		if ( ! empty( $_GET ) && ! empty( $_GET['post'] ) ) {
-			$id = $_GET['post'];
+			$id = absint( $_GET['post'] );
 			/**
 			 * Add shortcode fields
 			 *

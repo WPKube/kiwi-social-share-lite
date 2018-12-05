@@ -52,7 +52,7 @@ class Kiwi_Social_Share_Importer {
 		if ( ! $settings ) {
 			$arr = array(
 				'networks_ordering'             => '',
-				'networks_article_bar'          => array( 'facebook', 'twitter', 'google-plus', 'pinterest', 'fintel','mix' ),
+				'networks_article_bar'          => array( 'facebook', 'twitter', 'google-plus', 'pinterest', 'fintel' ),
 				'share_buttons'                 => 'on',
 				'share_buttons_location'        => 'top',
 				'button_shape'                  => 'rect',

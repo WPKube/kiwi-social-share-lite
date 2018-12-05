@@ -29,6 +29,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 
             <strong></strong>
 			<?php echo esc_html__( 'Monochrome', 'kiwi-social-share' ); ?>
+            <a href="<?php echo admin_url( 'admin.php?page=kiwi-upgrade' ) ?>" class="kiwi-upgrade-pro-url" target="_blank"></a>
+
         </label>
 
         <label class="epsilon-ui-radio epsilon-ui-radio-toggle ui-radio-inline ui-locked">
@@ -39,6 +41,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 
             <strong></strong>
 			<?php echo esc_html__( 'Custom', 'kiwi-social-share' ); ?>
+            <a href="<?php echo admin_url( 'admin.php?page=kiwi-upgrade' ) ?>" class="kiwi-upgrade-pro-url" target="_blank"></a>
+
         </label>
     </div>
 
@@ -57,6 +61,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                 <label class="epsilon-ui-checkbox"><input id="floating-bar-all" type="checkbox"/>
                     <strong style="transform: translateX(-7px);"></strong></label></span>
         </h2>
+
         <ul>
 			<?php foreach ( $colors as $network => $props ) { ?>
 				<?php if ( $network === 'monochrome' ) {
@@ -136,8 +141,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 							</label>
 						<?php endif; ?>
 					</span>
-<?php if ( ! $networks[ $network ]['locked'] ): ?>
-                    <span>					
+
+                    <span>
+					<?php if ( ! $networks[ $network ]['locked'] ): ?>
                         <label class="epsilon-ui-checkbox">
 							<input name="kiwi_general_settings[networks_floating_bar][]"
                                    value="<?php echo esc_attr( $network ); ?>"
@@ -156,7 +162,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 					</span>
 
 					<?php if ( $networks[ $network ]['locked'] ): ?>
-                        <strong class="epsilon-ui-locked"><i class="dashicons dashicons-lock"></i></strong>
+                        <strong class="epsilon-ui-locked"><a href="<?php echo admin_url( 'admin.php?page=kiwi-upgrade' ) ?>" class="kiwi-upgrade-pro-url" target="_blank"></a><i class="dashicons dashicons-lock"></i></strong>
 					<?php endif; ?>
                 </li>
 			<?php } ?>

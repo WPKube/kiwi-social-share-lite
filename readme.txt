@@ -1,10 +1,10 @@
-﻿=== Plugin Name ===
+﻿=== Social Sharing Plugin - Kiwi ===
 
-Contributors: machothemes, cristian.raiber, silkalns
-Tags: Facebook, facebook connect, facebook like, facebook share, facebook share icon, floating buttons, floating share, floating share icons, follow, google, Google Login, google plus, icons, increase shares, linkedin, linkedin share, media, page, pinterest, pinterest button, pinterest share, plugin, post to social networks, Reddit, reddit share, reddit sharing, Share, share button, share buttons, share counter, share icons, share links, share page, share post, sharebar, sharing, sharing icons, social, social app, social buttons, social comment, social comment facebook, social connect, social floating icons, social follow, social icon, social icons, social media, social media app, social media buttons, Social Media Plugins, social media share, social media sharing, social media tools, social network share, Social Plugins, social provider, social share, Social Share Buttons, social share icon, social share icons, social sharing, social sharing icons, social widget, stumbleupon sharing, tumblr share, tumblr sharing, twitter, twitter share, woocommerce, woocommerce connect, woocommerce sharing, yahoo
+Contributors: machothemes, silkalns
+Tags: social media button, social share button, social floating bar, social share bar, facebook share, social sharing icons, twitter share, woocommerce sharing, share buttons, pinterest share, google plus share, social share counters
 Requires at least: 3.8
 Tested up to: 4.9
-Stable tag: 2.0.8
+Stable tag: trunk
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -74,9 +74,19 @@ Floating Bar Filters
     kiwi_after_last_floating_bar_item
     kiwi_after_floating_bar
 
-
-
 == Changelog ==
+
+= 2.0.11 =
+* Improve performance
+* Fixed security issue
+
+= 2.0.10 =
+* Update CMB2
+* Improved Admin UI
+
+= 2.0.9 =
+* Minor Fixes
+
 = 2.0.8 =
 * Added Fintel network
 

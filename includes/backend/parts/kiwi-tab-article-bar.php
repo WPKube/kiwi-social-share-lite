@@ -105,6 +105,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 
                 <strong></strong>
 				<?php echo esc_html__( 'Select post types', 'kiwi-social-share' ); ?>
+                <a href="<?php echo admin_url( 'admin.php?page=kiwi-upgrade' ) ?>" class="kiwi-upgrade-pro-url" target="_blank"></a>
+
             </label>
 
             <div class="epsilon-ui-checklist" <?php echo ( $share_buttons_posttypes === 'all' ) ? 'style="display:none"' : ''; ?>>

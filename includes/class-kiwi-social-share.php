@@ -111,7 +111,7 @@ class Kiwi_Social_Share {
 		new Kiwi_Social_Share_Click_To_Tweet();
 
 
-		
+
 		add_action( 'plugins_loaded', array( $this, 'load_frontend_kiwi' ) );
 
 		// Load frontend JS & CSS
@@ -125,7 +125,7 @@ class Kiwi_Social_Share {
 		// Handle feedback
 		require_once 'lib/class-kiwi-social-share-feedback.php';
 		new Kiwi_Social_Share_Feedback( $this->file );
-		
+
 		// Handle localisation
 		$this->load_plugin_textdomain();
 		add_action( 'init', array( $this, 'load_localisation' ), 0 );
@@ -226,13 +226,16 @@ class Kiwi_Social_Share {
 	 */
 	public function admin_enqueue_styles( $hook = '' ) {
 		// Add the color picker css file
-		if ( $hook == 'toplevel_page_kiwi_social_sharing_settings' ) {
+		if ( $hook == 'toplevel_page_kiwi_social_sharing_settings' || $hook == 'kiwi_page_kiwi-upgrade' ) {
 			wp_enqueue_style( 'wp-color-picker' );
 			wp_enqueue_style( 'bootstrap', esc_url( $this->assets_url ) . 'vendors/bootstrap/bootstrap' . $this->script_suffix . '.css', array(), $this->_version );
 			wp_enqueue_style( 'open-sans', '//fonts.googleapis.com/css?family=Open+Sans:300,400,700,800', array(), $this->_version );
 			wp_enqueue_style( 'icomoon', esc_url( $this->assets_url ) . 'vendors/icomoon/style.css', array(), $this->_version );
-			wp_register_style( $this->_token . '-admin', esc_url( $this->assets_url ) . 'css/admin' . $this->script_suffix . '.css', array(), $this->_version );
+			wp_register_style( $this->_token . '-admin', esc_url( $this->assets_url ) . 'css/admin.css', array(), $this->_version );
 			wp_enqueue_style( $this->_token . '-admin' );
+		}else {
+			wp_register_style('menu-link', esc_url( $this->assets_url ) . 'css/menu-link.css', array(), $this->_version );
+			wp_enqueue_style( 'menu-link' );
 		}
 
 	} // End admin_enqueue_styles ()
@@ -254,7 +257,7 @@ class Kiwi_Social_Share {
 				'bootstrap',
 				'wp-color-picker'
 			), $this->_version, true );
-			wp_register_script( $this->_token . '-admin', esc_url( $this->assets_url ) . 'js/admin' . $this->script_suffix . '.js', array( $this->_token . '-kiwi' ), $this->_version, true );
+			wp_register_script( $this->_token . '-admin', esc_url( $this->assets_url ) . 'js/admin.js', array( $this->_token . '-kiwi' ), $this->_version, true );
 			$kiwi_locale = array(
 				'kiwi_step_one_title'    => esc_html__( 'Get your premium version now!', 'kiwi-social-share' ),
 				'kiwi_step_two_title'    => esc_html__( 'Almost Done', 'kiwi-social-share' ),

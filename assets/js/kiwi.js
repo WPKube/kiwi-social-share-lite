@@ -132,7 +132,7 @@ var kiwi = {
 		 * @param $
 		 */
 		tabs: function ($) {
-			$('.epsilon-ui-tabs a').click(function () {
+			$('.epsilon-ui-tabs a:not([href*="admin.php?page=kiwi-upgrade"])').click(function () {
 
 				if ( $(this).closest('li').hasClass('selected') ) {
 					return 0;
@@ -143,8 +143,8 @@ var kiwi = {
 				$(this).closest('ul').find('.selected').removeClass('selected');
 				$(this).closest('li').addClass('selected');
 
-				$('.sl-kiwi-content .epsilon-tab-active').hide().removeClass('epsilon-tab-active');
-				$('.sl-kiwi-content .' + tab).show(700).addClass('epsilon-tab-active');
+				$('.sl-kiwi-content .epsilon-tab-active').removeClass('epsilon-tab-active');
+				$('.sl-kiwi-content .' + tab).addClass('epsilon-tab-active');
 
 				document.cookie = 'tab=' + tab;
 				$(document).trigger('KiwiTabChanged');
