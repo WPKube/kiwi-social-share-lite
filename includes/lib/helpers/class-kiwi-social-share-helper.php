@@ -369,7 +369,7 @@ class Kiwi_Social_Share_Helper {
 	 */
 	public static function get_excerpt_by_id( $id ) {
 		$the_post = get_post( $id );
-		if ( NULL !== $the_post ) {
+		if ( NULL === $the_post ) {
 			return '';
 		}
 

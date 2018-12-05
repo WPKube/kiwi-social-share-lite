@@ -4,7 +4,7 @@ Contributors: machothemes, silkalns
 Tags: social media button, social share button, social floating bar, social share bar, facebook share, social sharing icons, twitter share, woocommerce sharing, share buttons, pinterest share, google plus share, social share counters
 Requires at least: 3.8
 Tested up to: 4.9
-Stable tag: trunk
+Stable tag: 2.0.13
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -75,6 +75,9 @@ Floating Bar Filters
     kiwi_after_floating_bar
 
 == Changelog ==
+
+= 2.0.13 =
+* Fixed "Trying to get property ‘post_content’ when there is no id, like 404"
 
 = 2.0.11 =
 * Improve performance
