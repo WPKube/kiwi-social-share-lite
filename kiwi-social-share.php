@@ -47,4 +47,18 @@ function Kiwi_Social_Share() {
 	return $instance;
 }
 
+function kiwi_social_share_check_for_review() {
+	if ( ! is_admin() ) {
+		return;
+	}
+	require_once KIWI_SOCIAL_SHARE_BASE . 'includes/class-kiwi-social-share-review.php';
+
+	Kiwi_Social_Share_Review::get_instance( array(
+		'slug' => 'kiwi-social-share',
+	) );
+}
+
 Kiwi_Social_Share();
+
+kiwi_social_share_check_for_review();
+
