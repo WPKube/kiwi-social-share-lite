@@ -122,10 +122,6 @@ class Kiwi_Social_Share {
 		add_action( 'admin_enqueue_scripts', array( $this, 'admin_enqueue_scripts' ), 10, 1 );
 		add_action( 'admin_enqueue_scripts', array( $this, 'admin_enqueue_styles' ), 10, 1 );
 
-		// Handle feedback
-		require_once 'lib/class-kiwi-social-share-feedback.php';
-		new Kiwi_Social_Share_Feedback( $this->file );
-
 		// Handle localisation
 		$this->load_plugin_textdomain();
 		add_action( 'init', array( $this, 'load_localisation' ), 0 );

@@ -1,13 +1,13 @@
 <?php
 /*
  * Plugin Name: Kiwi Social Share - Social Media Share Buttons & Icons
- * Version: 2.0.13
+ * Version: 2.0.14
  * Plugin URI: https://www.machothemes.com/kiwi-social-share
  * Description: Really beautiful & simple social media & share buttons + icons. Simplicity & speed is key with this social media share plugin.
  * Author: Macho Themes
  * Author URI: https://www.machothemes.com
  * Requires at least: 4.0
- * Tested up to: 4.9
+ * Tested up to: 5.0
  *
  * Text Domain: kiwi-social-share
  * Domain Path: /languages/
@@ -38,7 +38,7 @@ require_once 'includes/class-kiwi-social-share-autoloader.php';
  * @return object Kiwi_Social_Share
  */
 function Kiwi_Social_Share() {
-	$instance = Kiwi_Social_Share::instance( __FILE__, '2.0.13' );
+	$instance = Kiwi_Social_Share::instance( __FILE__, '2.0.14' );
 
 	if ( is_null( $instance->settings ) ) {
 		$instance->settings = Kiwi_Social_Share_Settings::instance( $instance );
