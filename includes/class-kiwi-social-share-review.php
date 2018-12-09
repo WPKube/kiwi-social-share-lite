@@ -19,7 +19,7 @@ class Kiwi_Social_Share_Review {
 		$this->value = $this->value();
 
 		$this->messages = array(
-			'notice'  => __( "Hey, I noticed you have installed our plugin for %s day - that's awesome! Could you please do me a BIG favor and give it a 5-star rating on WordPress? Just to help us spread the word and boost our motivation.", 'kiwi-social-share' ),
+			'notice'  => __( "Hey, I noticed you have installed our plugin for %s day(s) - that's awesome! Could you please do me a BIG favor and give it a 5-star rating on WordPress? Just to help us spread the word and boost our motivation.", 'kiwi-social-share' ),
 			'rate'    => __( 'Ok, you deserve it', 'kiwi-social-share' ),
 			'rated'   => __( 'I already did', 'kiwi-social-share' ),
 			'no_rate' => __( 'No, not good enough', 'kiwi-social-share' ),
@@ -85,7 +85,10 @@ class Kiwi_Social_Share_Review {
 		$value = get_transient( 'kiwi_social_share_review' );
 
 		if ( $value ) {
-			return $value;
+			$current_time = time(); // or your date as well
+            $trans_date = strtotime($value);
+            $date_diff = $current_time - $trans_date;
+            return round($date_diff / (60 * 60 * 24));
 		}
 
 		$date = date( 'Y-m-d' );
