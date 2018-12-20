@@ -109,7 +109,7 @@ class Kiwi_Social_Share {
 		register_activation_hook( $this->file, array( $this, 'install' ) );
 
 		new Kiwi_Social_Share_Click_To_Tweet();
-
+        $test = new Kiwi_Social_Share_Counts();
 
 
 		add_action( 'plugins_loaded', array( $this, 'load_frontend_kiwi' ) );
@@ -125,6 +125,10 @@ class Kiwi_Social_Share {
 		// Handle localisation
 		$this->load_plugin_textdomain();
 		add_action( 'init', array( $this, 'load_localisation' ), 0 );
+
+		//Test
+        add_action('wp_ajax_do_it_somesomes',$test->test_get_shared_count());
+        add_action('wp_ajax_nopriv_do_it_somesomes',$test->test_get_shared_count());
 
 		$this->add_shortcodes();
 		$this->add_metaboxes();
@@ -210,6 +214,7 @@ class Kiwi_Social_Share {
 	public function enqueue_scripts() {
 		wp_register_script( $this->_token . '-kiwi', esc_url( $this->assets_url ) . 'js/kiwi' . $this->script_suffix . '.js', array( 'jquery' ), $this->_version, true );
 		wp_register_script( $this->_token . '-frontend', esc_url( $this->assets_url ) . 'js/frontend' . $this->script_suffix . '.js', array( $this->_token . '-kiwi' ), $this->_version );
+		wp_localize_script($this->_token . '-frontend','kiwi_ajax_obj',array('kiwi_ajax_url' => admin_url( 'admin-ajax.php' )));
 
 	} // End enqueue_scripts ()
 

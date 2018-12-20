@@ -37,7 +37,9 @@ abstract class Kiwi_Social_Share_Social_Button {
 		if ( is_front_page() || is_archive() || is_date() || is_category() || is_home() ) {
 			$this->post_id = 'fp';
 		}
-	}
+
+    }
+
 
 	/**
 	 * @param $id
@@ -74,6 +76,7 @@ abstract class Kiwi_Social_Share_Social_Button {
 	 */
 	public function get_shared_count() {
 		$response = get_transient( 'kiwi_' . $this->post_id . '_share_count_transient' );
+
 		if ( false === $response || empty( $response[ $this->platform ] ) ) {
 			$api = $this->connect_to_api_url();
 
@@ -95,10 +98,20 @@ abstract class Kiwi_Social_Share_Social_Button {
 	 * Returns a string, HTML code
 	 */
 	public function build_shared_count() {
-		if ( Kiwi_Social_Share_Helper::get_setting_value( 'share_counts', '' ) === 'on' && $this->get_shared_count() > 0 ) {
-			return '<span class="kiwi-share-count">' . $this->get_shared_count() . '</span>';
-		};
 
+	    $share_transient = get_transient( 'kiwi_' . $this->post_id . '_share_count_transient' );
+
+        if ( Kiwi_Social_Share_Helper::get_setting_value( 'share_counts', '' ) === 'on' ) {
+            if(false !== $share_transient || !empty( $share_transient[ $this->platform ] )){
+
+                    return '<span class="kiwi-share-count">' . $this->get_shared_count() . '</span>';
+
+            } else {
+
+                return '<span class="kiwi-share-count" no-transient="true"></span>';
+
+            }
+        };
 		return '';
 	}
 

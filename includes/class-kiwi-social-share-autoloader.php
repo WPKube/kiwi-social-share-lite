@@ -87,3 +87,4 @@ class Kiwi_Social_Share_Autoloader {
 $autoloader = new Kiwi_Social_Share_Autoloader();
 
 require_once KIWI_SOCIAL_SHARE_BASE . 'includes/lib/cmb2/init.php';
+require_once KIWI_SOCIAL_SHARE_BASE . 'includes/frontend/social-bars/class-kiwi-social-share-view-count.php';
