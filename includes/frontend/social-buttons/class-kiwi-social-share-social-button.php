@@ -37,9 +37,7 @@ abstract class Kiwi_Social_Share_Social_Button {
 		if ( is_front_page() || is_archive() || is_date() || is_category() || is_home() ) {
 			$this->post_id = 'fp';
 		}
-
-    }
-
+	}
 
 	/**
 	 * @param $id
@@ -76,20 +74,19 @@ abstract class Kiwi_Social_Share_Social_Button {
 	 */
 	public function get_shared_count() {
 		$response = get_transient( 'kiwi_' . $this->post_id . '_share_count_transient' );
-
-		if ( false === $response || empty( $response[ $this->platform ] ) ) {
+		/*if ( false === $response || empty( $response[ $this->platform ] ) ) {
 			$api = $this->connect_to_api_url();
 
 			if ( ! $api ) {
 				$api = 0;
 			}
 
-			$response[ $this->platform ] = $api;
+			$response[ $this->platform ] = $api;*/
 			/**
 			 * Add a transient available 2 HOURS
 			 */
-			set_transient( 'kiwi_' . $this->post_id . '_share_count_transient', $response, 2 * HOUR_IN_SECONDS );
-		}
+			/*set_transient( 'kiwi_' . $this->post_id . '_share_count_transient', $response, 2 * HOUR_IN_SECONDS );
+		}*/
 
 		return $response[ $this->platform ];
 	}
@@ -98,19 +95,19 @@ abstract class Kiwi_Social_Share_Social_Button {
 	 * Returns a string, HTML code
 	 */
 	public function build_shared_count() {
+		/*if ( Kiwi_Social_Share_Helper::get_setting_value( 'share_counts', '' ) === 'on' && $this->get_shared_count() > 0 ) {
+			return '<span class="kiwi-share-count">' . $this->get_shared_count() . '</span>';
+		};*/
+        $response = get_transient( 'kiwi_' . $this->post_id . '_share_count_transient' );
 
-	    $share_transient = get_transient( 'kiwi_' . $this->post_id . '_share_count_transient' );
-
-        if ( Kiwi_Social_Share_Helper::get_setting_value( 'share_counts', '' ) === 'on' ) {
-            if(false !== $share_transient || !empty( $share_transient[ $this->platform ] )){
-
-                    return '<span class="kiwi-share-count">' . $this->get_shared_count() . '</span>';
-
+        if ( Kiwi_Social_Share_Helper::get_setting_value( 'share_counts', '' )  ) {
+            if(false === $response || !isset($response[ $this->platform ]) || false === $response[ $this->platform ] || NULL === $response[ $this->platform ] ){
+                return '<span class="kiwi-share-count" no-transient="true">&nbsp;</span>';
             } else {
-
-                return '<span class="kiwi-share-count" no-transient="true"></span>';
+                return '<span class="kiwi-share-count">' . $this->get_shared_count() . '</span>';
 
             }
+
         };
 		return '';
 	}

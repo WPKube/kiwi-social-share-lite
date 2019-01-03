@@ -118,7 +118,10 @@ final class Kiwi_Social_Share_View_Article_Bar extends Kiwi_Social_Share_View im
 			$tracking = ' data-tracking="true" data-tracking-container="article-bar" ';
 		}
 
-		$output .= '<ul class="kiwi-article-bar ' . esc_attr( $class . $additional ) . '"' . $tracking . '>';
+		//add page-id attribute used for count saving transient
+        $count_page_id = 'page-id="'.get_the_ID().'"';
+
+		$output .= '<ul class="kiwi-article-bar ' . esc_attr( $class . $additional ) . '"' . $tracking . $count_page_id . '>';
 		$output .= wp_kses_post( apply_filters( 'kiwi_before_first_article_bar_item', '' ) );
 
 		foreach ( $this->networks['article_bar'] as $network ) {

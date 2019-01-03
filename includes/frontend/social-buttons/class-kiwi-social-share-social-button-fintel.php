@@ -28,7 +28,7 @@ final class Kiwi_Social_Share_Social_Button_Fintel extends Kiwi_Social_Share_Soc
 	 * @return string
 	 */
 	public function generate_output() {
-		return '<a data-class="popup" data-network="' . esc_attr( $this->platform ) . '" class="' . esc_attr( $this->generate_anchor_class() ) . '" href="' . esc_url( $this->url ) . '" target="_blank" rel="nofollow">' . $this->generate_anchor_icon() . '</a>';
+		return '<a data-class="popup" data-network="' . esc_attr( $this->platform ) . '" class="' . esc_attr( $this->generate_anchor_class() ) . '" href="' . esc_url( $this->url ) . '" target="_blank" rel="nofollow">' . $this->generate_anchor_icon() . $this->build_shared_count().'</a>';
 	}
 
 }

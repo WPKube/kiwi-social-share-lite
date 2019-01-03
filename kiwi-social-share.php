@@ -61,4 +61,3 @@ function kiwi_social_share_check_for_review() {
 Kiwi_Social_Share();
 
 kiwi_social_share_check_for_review();
-
