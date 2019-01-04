@@ -122,6 +122,7 @@ class Kiwi_Social_Share {
 		add_action( 'admin_enqueue_scripts', array( $this, 'admin_enqueue_scripts' ), 10, 1 );
 		add_action( 'admin_enqueue_scripts', array( $this, 'admin_enqueue_styles' ), 10, 1 );
 
+        // Ajax action to display and save the counts
         add_action( 'wp_ajax_social_counts', array($social_counts,'kiwi_share_me'));
         add_action( 'wp_ajax_nopriv_social_counts', array($social_counts,'kiwi_share_me'));
 
