@@ -120,35 +120,6 @@ abstract class Kiwi_Social_Share_Social_Button {
 		return '';
 	}
 
-	/**
-	 * @return bool|mixed
-	 */
-	public function connect_to_api_url() {
-		if ( empty( $this->api_url ) ) {
-			return false;
-		}
-
-		$response = wp_remote_get( $this->api_url );
-
-		if ( is_wp_error( $response ) || 200 != wp_remote_retrieve_response_code( $response ) ) {
-			return false;
-		}
-
-		if ( empty( $response['body'] ) ) {
-			return false;
-		}
-
-		return $this->parse_api_response( $response );
-	}
-
-	/**
-	 * @param $response
-	 *
-	 * @return mixed
-	 */
-	public function parse_api_response( $response ) {
-		return 0;
-	}
 
 	/**
 	 * @param $id

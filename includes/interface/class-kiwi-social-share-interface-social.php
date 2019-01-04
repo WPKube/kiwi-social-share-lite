@@ -34,14 +34,4 @@ interface Kiwi_Social_Share_Interface_Social {
 	 * @return mixed
 	 */
 	public function build_shared_count();
-
-	/**
-	 * @return mixed
-	 */
-	public function connect_to_api_url();
-
-	/**
-	 * @return mixed
-	 */
-	public function parse_api_response( $response );
 }
