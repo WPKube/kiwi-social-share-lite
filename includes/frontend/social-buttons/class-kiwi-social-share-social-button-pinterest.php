@@ -54,24 +54,4 @@ final class Kiwi_Social_Share_Social_Button_Pinterest extends Kiwi_Social_Share_
 	public function generate_output() {
 		return '<a data-class="popup" data-network="' . esc_attr( $this->platform ) . '" class="' . esc_attr( $this->generate_anchor_class() ) . '" href="' . esc_url( $this->url ) . '" target="_blank" rel="nofollow">' . $this->generate_anchor_icon() . ' ' . $this->build_shared_count() . '</a>';
 	}
-
-	/**
-	 * @param $response
-	 */
-	/**
-	 * @param $response
-	 *
-	 * @return bool
-	 */
-	public function parse_api_response( $response ) {
-		$response = preg_replace( '/^receiveCount\((.*)\)$/', '\\1', $response['body'] );
-		$response = json_decode( $response, true );
-
-		if ( empty( $response['count'] ) ) {
-			return false;
-		}
-
-		return $response['count'];
-	}
-
 }
